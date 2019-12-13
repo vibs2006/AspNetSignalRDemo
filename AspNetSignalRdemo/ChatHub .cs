@@ -6,7 +6,8 @@ using Microsoft.AspNet.SignalR;
 
 namespace AspNetSignalRdemo
 {
-    public class MyHub : Hub
+    //https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/tutorial-getting-started-with-signalr
+    public class ChatHub : Hub
     {
         public void Hello()
         {
