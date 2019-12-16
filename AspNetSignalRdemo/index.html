@@ -12,6 +12,9 @@
     </style>
 </head>
 <body>
+    <div class="container" id="divName">
+
+    </div>
     <div class="container">
         <input type="text" id="message" />
         <input type="button" id="sendmessage" value="Send" />
@@ -42,7 +45,9 @@
                     + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
             };
             // Get the user name and store it to prepend to messages.
+           
             $('#displayname').val(prompt('Enter your name:', ''));
+            $("#divName").html("Welcome " + $("#displayname").val())
             // Set initial focus to message input box.
             $('#message').focus();
             // Start the connection.
@@ -53,7 +58,20 @@
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
                 });
+
+                
             });
+
+            $(document).on("keyup", "#message", function (event) {
+
+                if (event.key == "Enter") {
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    // Clear text box and reset focus for next comment.
+                    $('#message').val('').focus();
+                }
+
+            });
+
         });
     </script>
 </body>
